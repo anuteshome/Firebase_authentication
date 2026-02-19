@@ -7,6 +7,10 @@ It demonstrates how to integrate Firebase Authentication into a Flutter applicat
 
 The goal of this project is to understand how user authentication works in mobile apps using Firebase.
 
+<div align="center">
+  <img src="image.png" width="300">
+</div>
+
 🚀 Features
 
 🔐 Email & Password Sign Up
@@ -45,7 +49,7 @@ services/ → Firebase authentication logic
 
 Clone the repository:
 
-git clone https://github.com/your-username/fluth.git
+git clone https://github.com/anuteshome/fluth.git
 
 
 Navigate to the project:
