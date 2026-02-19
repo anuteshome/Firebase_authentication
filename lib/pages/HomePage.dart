@@ -19,6 +19,7 @@ void SignUserin(){
       body:SafeArea(
         child:Center(
       child:Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
            const SizedBox(height: 50),
            const Icon(Icons.lock,size: 100),
@@ -80,6 +81,19 @@ void SignUserin(){
 const SizedBox(width: 10,),
                 SquareTie(imagePath: 'lib/images/apple.png')
                  ],),
+const SizedBox(height: 50,),
+Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: [
+    Text("Not a member?",style: TextStyle(color: Colors.grey[700]),),
+const SizedBox(width: 5,),
+    Text("register now",
+    style: TextStyle(color: Colors.blue,
+    fontWeight: FontWeight.bold),
+    )
+  ],
+)
+
         ],
       )
       )
