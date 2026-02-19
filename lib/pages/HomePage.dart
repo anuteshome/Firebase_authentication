@@ -1,4 +1,5 @@
 import 'package:fluth/component/Button.dart';
+import 'package:fluth/component/SquerTile.dart';
 import 'package:fluth/component/TextFiled.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,7 @@ final UsernameController=TextEditingController();
 final PasswordController=TextEditingController();
 
 void SignUserin(){
-  
+
 }
 
   @override
@@ -54,6 +55,31 @@ void SignUserin(){
          ),
           const SizedBox(height: 25),
           MyButton(onTap: SignUserin),
+          const SizedBox(height: 25,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Row(
+              children: [
+                Expanded(child:
+                 Divider(thickness: 0.5,color: Colors.grey[400],)),
+                 Padding(
+                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                   child: Text("Or continue with "),
+                 ),
+                   Expanded(child:
+                 Divider(thickness: 0.5,color: Colors.grey[400],)),
+              ],
+            ),
+          ),
+           const SizedBox(height: 25,),
+            const SizedBox(height: 25,),
+           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+              SquareTie(imagePath: 'lib/images/google.png'),
+const SizedBox(width: 10,),
+                SquareTie(imagePath: 'lib/images/apple.png')
+                 ],),
         ],
       )
       )
