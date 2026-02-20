@@ -16,54 +16,13 @@ class _HomepageState extends State<Homepage> {
 final emailController=TextEditingController();
 final passwordController=TextEditingController();
 
-void signUserIn() async {
-  final email = emailController.text.trim();      // remove spaces
-  final password = passwordController.text.trim();
 
-  // ← This prevents the pigeon/channel-error
-  if (email.isEmpty || password.isEmpty) {
-    // Show message to user (use SnackBar, AlertDialog, etc.)
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Please enter email and password'),
-        backgroundColor: Colors.red,
-      ),
-    );
-    return;  // ← stop! don't call signIn
-  }
-
-  try {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-    // Success → navigate or let StreamBuilder handle it
-    print('Login successful!');
-  } on FirebaseAuthException catch (e) {
-    String msg = 'Login failed';
-    if (e.code == 'user-not-found') {
-      msg = 'No user found with that email';
-    } else if (e.code == 'wrong-password') {
-      msg = 'Wrong password';
-    } else if (e.code == 'invalid-email') {
-      msg = 'Invalid email format';
-    } else if (e.code == 'invalid-credential') {
-      msg = 'Invalid credentials';
-    } else {
-      msg = e.message ?? 'Unknown error';
-    }
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(msg), backgroundColor: Colors.red),
-    );
-  } catch (e) {
-    print('Other error: $e');
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Something went wrong'), backgroundColor: Colors.red),
-    );
-  }
+void signUserIn() async{
+await FirebaseAuth.instance.signInWithEmailAndPassword(
+    email: emailController.text.trim(),
+    password: passwordController.text.trim(),
+  );
 }
-
 
   @override
   Widget build(BuildContext context) {
@@ -108,9 +67,9 @@ void signUserIn() async {
                ],
              ),
            ),
-            // const SizedBox(height: 25),
+            const SizedBox(height: 25),
             MyButton(onTap:signUserIn),
-            // const SizedBox(height: 25,),
+            const SizedBox(height: 25,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Row(
@@ -127,15 +86,15 @@ void signUserIn() async {
               ),
             ),
              const SizedBox(height: 25,),
-              // const SizedBox(height: 25,),
-        //            Row(
-        //             mainAxisAlignment: MainAxisAlignment.center,
-        //                   children: [
-        //               SquareTie(imagePath: 'lib/images/google.png'),
-        // const SizedBox(width: 10,),
-        //                 SquareTie(imagePath: 'lib/images/apple.png')
-        //                  ],),
-        // const SizedBox(height: 50,),
+              const SizedBox(height: 25,),
+                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                      SquareTie(imagePath: 'lib/images/google.png'),
+        const SizedBox(width: 10,),
+                        SquareTie(imagePath: 'lib/images/apple.png')
+                         ],),
+        const SizedBox(height: 50,),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
