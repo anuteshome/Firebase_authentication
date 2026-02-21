@@ -103,9 +103,13 @@ await FirebaseAuth.instance.createUserWithEmailAndPassword(
                    Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                      SquareTie(imagePath: 'lib/images/google.png'),
+                      SquareTie(
+                        onTap: (){},
+                        imagePath: 'lib/images/google.png'),
         const SizedBox(width: 10,),
-                        SquareTie(imagePath: 'lib/images/apple.png')
+                        SquareTie(
+                            onTap: (){},
+                          imagePath: 'lib/images/apple.png')
                          ],),
         const SizedBox(height: 20,),
         Row(

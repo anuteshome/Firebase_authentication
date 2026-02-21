@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluth/Services/AuthServices.dart';
 import 'package:fluth/component/Button.dart';
 import 'package:fluth/component/SquerTile.dart';
 import 'package:fluth/component/TextFiled.dart';
@@ -102,9 +103,13 @@ await FirebaseAuth.instance.signInWithEmailAndPassword(
                    Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                      SquareTie(imagePath: 'lib/images/google.png'),
+                      SquareTie(
+                          onTap: Authservices().signWithGoogleMethod(),
+                        imagePath: 'lib/images/google.png'),
         const SizedBox(width: 10,),
-                        SquareTie(imagePath: 'lib/images/apple.png')
+                        SquareTie(
+                          onTap:(){},
+                          imagePath: 'lib/images/apple.png')
                          ],),
         const SizedBox(height: 50,),
         Row(
