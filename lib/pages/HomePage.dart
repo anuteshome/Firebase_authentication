@@ -104,7 +104,7 @@ await FirebaseAuth.instance.signInWithEmailAndPassword(
                     mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                       SquareTie(
-                          onTap: Authservices().signWithGoogleMethod(),
+                          onTap: Authservices().signWithGoogleMethod,
                         imagePath: 'lib/images/google.png'),
         const SizedBox(width: 10,),
                         SquareTie(

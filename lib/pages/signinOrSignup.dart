@@ -27,7 +27,7 @@ showLoginPage=!showLoginPage;
       }
       else{
         return Signup(onTap:toggleSign);
-      };
+      }
     
   }
 }
