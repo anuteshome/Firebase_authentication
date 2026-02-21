@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluth/pages/HelloPage.dart';
 import 'package:fluth/pages/HomePage.dart';
+import 'package:fluth/pages/signinOrSignup.dart';
+import 'package:fluth/pages/signup.dart';
 import 'package:flutter/material.dart';
 
 class AuthPage extends StatelessWidget {
@@ -15,7 +17,7 @@ class AuthPage extends StatelessWidget {
               if(snapshot.hasData){
           return HelloPage();
         }else{
-          return Homepage();
+          return Signinorsignup();
         }
          }
         ),

@@ -5,32 +5,38 @@ import 'package:fluth/component/TextFiled.dart';
 import 'package:flutter/material.dart';
 
 
-class Homepage extends StatefulWidget {
+class Signup extends StatefulWidget {
   final Function()? onTap;
 
-   Homepage({super.key,required this.onTap});
+   Signup({super.key, required this.onTap});
 
   @override
-  State<Homepage> createState() => _HomepageState();
+  State<Signup> createState() => _HomepageState();
 }
 
-class _HomepageState extends State<Homepage> {
+class _HomepageState extends State<Signup> {
 
 
 final emailController=TextEditingController();
 final passwordController=TextEditingController();
+final confirmPasswordController = TextEditingController();
 
 
-void signUserIn() async{
+void signUserup() async{
 // showDialog(context: context, builder: (context){
 //   return const Center(
 //     child: CircularProgressIndicator(),
 //   );
 // });
-await FirebaseAuth.instance.signInWithEmailAndPassword(
+if(confirmPasswordController.text.trim() == passwordController.text.trim()){
+await FirebaseAuth.instance.createUserWithEmailAndPassword(
     email: emailController.text.trim(),
     password: passwordController.text.trim(),
+    // confirm:ConfirmPasswordController.text.trim(),
   );
+}else{
+  print("Please enter same password for confimration");
+}
       // Navigator.pop(context);
 }
 
@@ -47,7 +53,7 @@ await FirebaseAuth.instance.signInWithEmailAndPassword(
              const SizedBox(height: 50),
              const Icon(Icons.lock,size: 100),
              const SizedBox(height: 50,),
-             Text("Welcome back you are missed",
+             Text("Let's Create an account",
              style:TextStyle(
               color: Colors.grey[700],
               fontSize: 16,
@@ -62,6 +68,12 @@ await FirebaseAuth.instance.signInWithEmailAndPassword(
            Textfiled(
             controller: passwordController,
             hintText: "Password",
+            obsecureText: true,
+           ),
+            const SizedBox(height: 25,),
+           Textfiled(
+            controller: confirmPasswordController,
+            hintText: "Confirm Password",
             obsecureText: true,
            ),
            const SizedBox(height: 25),
@@ -79,8 +91,8 @@ await FirebaseAuth.instance.signInWithEmailAndPassword(
            ),
             const SizedBox(height: 25),
             MyButton(
-              text:"Sign in",
-              onTap:signUserIn),
+              text:"Sign Up",
+              onTap:signUserup),
             const SizedBox(height: 25,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -98,7 +110,7 @@ await FirebaseAuth.instance.signInWithEmailAndPassword(
               ),
             ),
              const SizedBox(height: 25,),
-              const SizedBox(height: 25,),
+              // const SizedBox(height: 25,),
                    Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -106,15 +118,15 @@ await FirebaseAuth.instance.signInWithEmailAndPassword(
         const SizedBox(width: 10,),
                         SquareTie(imagePath: 'lib/images/apple.png')
                          ],),
-        const SizedBox(height: 50,),
+        const SizedBox(height: 20,),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Not a member?",style: TextStyle(color: Colors.grey[700]),),
+            Text("Already have an account",style: TextStyle(color: Colors.grey[700]),),
         const SizedBox(width: 5,),
             GestureDetector(
               onTap: widget.onTap,
-              child: Text("register now",
+              child: Text("Login now",
               style: TextStyle(color: Colors.blue,
               fontWeight: FontWeight.bold),
               ),
