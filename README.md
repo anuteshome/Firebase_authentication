@@ -1,6 +1,6 @@
 📱 Fluth
 
-Flutter Authentication with Firebase
+Flutter Authentication with Firebase.
 
 Fluth is a simple authentication app built with Flutter and Firebase
 It demonstrates how to integrate Firebase Authentication into a Flutter application with a clean and minimal UI.
